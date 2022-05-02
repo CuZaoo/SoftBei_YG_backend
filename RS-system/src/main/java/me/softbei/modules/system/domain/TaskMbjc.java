@@ -1,0 +1,82 @@
+package me.softbei.modules.system.domain;
+
+import lombok.Data;
+import javax.persistence.*;
+import io.swagger.annotations.*;
+import java.io.Serializable;
+ import java.util.Date;
+ 
+@Data
+@ApiModel("目标检测表")
+@Entity
+@Table(name = "task_mbjc",schema="rs")
+public class TaskMbjc  implements Serializable {
+ 
+    private static final long serialVersionUID = 510778370106040311L;
+            
+    /**
+    * 目标检测ID
+    */                              
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name= "mbjc_id")
+    @ApiModelProperty("目标检测ID")
+    private Long mbjcId;
+                        
+    /**
+    * 原图url
+    */                                
+    @Basic
+    @Column(name= "img_url")
+    @ApiModelProperty("原图url")
+    private String imgUrl;
+                        
+    /**
+    * 原图path
+    */                                
+    @Basic
+    @Column(name= "img_path")
+    @ApiModelProperty("原图path")
+    private String imgPath;
+                        
+    /**
+    * 处理图url
+    */                                
+    @Basic
+    @Column(name= "img_result_url")
+    @ApiModelProperty("处理图url")
+    private String imgResultUrl;
+                        
+    /**
+    * 处理图path
+    */                                
+    @Basic
+    @Column(name= "img_result_path")
+    @ApiModelProperty("处理图path")
+    private String imgResultPath;
+                        
+    /**
+    * 任务ID
+    */                                
+    @Basic
+    @Column(name= "task_id")
+    @ApiModelProperty("任务ID")
+    private Long taskId;
+                        
+    /**
+    * 创建时间
+    */                                
+    @Basic
+    @Column(name= "create_time")
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+                        
+    /**
+    * 更新时间
+    */                                
+    @Basic
+    @Column(name= "update_time")
+    @ApiModelProperty("更新时间")
+    private Date updateTime;
+             
+}
