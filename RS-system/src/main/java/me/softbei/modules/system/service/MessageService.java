@@ -2,6 +2,8 @@ package me.softbei.modules.system.service;
 
 import me.softbei.modules.system.domain.Message;
 import java.util.List;
+
+import me.softbei.modules.system.domain.vo.Message7DayVo;
 import org.springframework.data.domain.Page;
 /**
  * (Message)表服务接口
@@ -17,9 +19,9 @@ public interface MessageService {
     boolean deleteById(Long messageId);
      List<Message> getall();
     Long getMessageSize();
-    List<Object> getMessageSizeOf7Days();
+    Message7DayVo getMessageSizeOf7Days();
     List<Message> getSomeMessage(Integer nums);
-
+    void saveMessage(Message message);
     Page<Message> getNewMessage(int page, int size);
 }
 

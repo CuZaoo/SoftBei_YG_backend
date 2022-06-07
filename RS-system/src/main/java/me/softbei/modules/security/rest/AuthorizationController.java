@@ -35,6 +35,7 @@ import me.softbei.modules.security.service.dto.AuthUserDto;
 import me.softbei.modules.security.service.dto.AuthUserRegisterDto;
 import me.softbei.modules.security.service.dto.JwtUserDto;
 import me.softbei.modules.security.service.OnlineUserService;
+import me.softbei.modules.system.service.ModelService;
 import me.softbei.utils.RsaUtils;
 import me.softbei.utils.RedisUtils;
 import me.softbei.utils.SecurityUtils;
@@ -69,6 +70,7 @@ public class AuthorizationController {
     private final OnlineUserService onlineUserService;
     private final TokenProvider tokenProvider;
     private final UserDetailsServiceImpl userDetailsService;
+    private ModelService modelService;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
     @Resource
     private LoginProperties loginProperties;
@@ -140,7 +142,11 @@ public class AuthorizationController {
         return ResponseEntity.ok(SecurityUtils.getCurrentUser()
         );
     }
-
+    @ApiOperation("获取分页模型")
+    @AnonymousPostMapping("getModelByPage")
+    public ResponseEntity<Object> getModelByPage(Integer page,Integer size){
+        return new ResponseEntity<>(this.modelService.getModelByPage(page,size),HttpStatus.OK);
+    }
     @ApiOperation("获取验证码")
     @AnonymousGetMapping(value = "/code")
     public ResponseEntity<Object> getCode() {

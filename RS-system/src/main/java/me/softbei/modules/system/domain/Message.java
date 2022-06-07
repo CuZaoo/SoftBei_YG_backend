@@ -5,6 +5,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 import io.swagger.annotations.*;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import java.io.Serializable;
  import java.util.Date;
  
@@ -46,6 +48,8 @@ public class Message  implements Serializable {
     * 创建时间
     */                                
     @Basic
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name= "create_time")
     @ApiModelProperty("创建时间")
     private Date createTime;
@@ -54,6 +58,9 @@ public class Message  implements Serializable {
     * 更新时间
     */                                
     @Basic
+
+    @UpdateTimestamp
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name= "update_time")
     @ApiModelProperty("更新时间")
     private Date updateTime;

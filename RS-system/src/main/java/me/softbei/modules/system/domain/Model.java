@@ -62,7 +62,7 @@ public class Model  implements Serializable {
     @Basic
     @Column(name= "miou")
     @ApiModelProperty("模型指标,使用逗号分隔")
-    private Integer miou;
+    private Float miou;
 
     /**
      * 模型指标,使用逗号分隔
@@ -70,7 +70,7 @@ public class Model  implements Serializable {
     @Basic
     @Column(name= "f1")
     @ApiModelProperty("模型指标,使用逗号分隔")
-    private Integer f1;
+    private Float f1;
 
     /**
     * 创建时间
